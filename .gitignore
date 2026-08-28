@@ -1,0 +1,13 @@
+# Maven
+target/
+
+# IntelliJ
+.idea/
+*.iml
+out/
+
+# Java
+*.class
+
+# Sistema
+.DS_Store
