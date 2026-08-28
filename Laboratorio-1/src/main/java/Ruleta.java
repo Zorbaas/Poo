@@ -42,7 +42,11 @@ public class Ruleta {
      * Muestra en consola las opciones disponibles del menú.
      */
     public static void mostrarMenu() {
-// TODO: Mostrar las opciones disponibles para el usuario.
+        System.out.println("\nRuleta - Casino Black Cat");
+        System.out.println("1. iniciar ronda");
+        System.out.println("2. Ver estadisticas");
+        System.out.println("3. Salir");
+        System.out.print("Seleccione una opcion");
     }
 
     /**
