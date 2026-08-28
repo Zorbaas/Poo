@@ -43,9 +43,9 @@ public class Ruleta {
      */
     public static void mostrarMenu() {
         System.out.println("\nRuleta - Casino Black Cat");
-        System.out.println("1. iniciar ronda");
-        System.out.println("2. Ver estadisticas");
-        System.out.println("3. Salir");
+        System.out.println("1.iniciar ronda");
+        System.out.println("2.Ver estadisticas");
+        System.out.println("3.Salir");
         System.out.print("Seleccione una opcion");
     }
 
