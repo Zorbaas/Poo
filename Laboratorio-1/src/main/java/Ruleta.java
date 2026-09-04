@@ -122,10 +122,28 @@ public class Ruleta {
 
 
     public static char leerTipoApuesta(Scanner in) {
-// TODO: Leer y validar el tipo de apuesta.
-        return ' ';
-    }
+        char tipo = ' ';
+        boolean valido = false;
 
+        while (!valido) {
+            System.out.println("Seleccione el tipo de apuesta:");
+            System.out.println("  R - Rojo");
+            System.out.println("  N - Negro");
+            System.out.println("  P - Par");
+            System.out.println("  I - Impar");
+            System.out.print("Opción: ");
+
+            String entrada = in.nextLine().trim().toUpperCase();
+            if (entrada.length() == 1 && "RNPI".indexOf(entrada.charAt(0)) != -1) {
+                tipo = entrada.charAt(0);
+                valido = true;
+            } else {
+                System.out.println("Opción inválida, intente nuevamente.\n");
+            }
+// TODO: Leer y validar el tipo de apuesta.
+        }
+        return tipo;
+    }
 
     public static int girarRuleta() {
 // TODO: Generar y retornar un número entre 0 y 36.
