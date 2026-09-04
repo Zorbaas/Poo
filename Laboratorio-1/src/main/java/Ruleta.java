@@ -151,8 +151,18 @@ public class Ruleta {
 
 
     public static boolean evaluarResultado(int numero, char tipo) {
-// TODO: Evaluar el resultado según el tipo de apuesta.
-        return false;
+        switch (tipo) {
+            case 'R':
+                return esRojo(numero);
+            case 'N':
+                return numero != 0 && !esRojo(numero);
+            case 'P':
+                return numero != 0 && numero % 2 == 0;
+            case 'I':
+                return numero % 2 != 0;
+            default:
+                return false;
+        }
     }
 
     public static boolean esRojo(int n) {
