@@ -72,7 +72,7 @@ public class Ruleta {
     }
 
 
-    public static void iniciarRonda(Scanner in) {
+    public static void iniciarRonda(Scanner in)  {
         if (historialSize >= MAX_HISTORIAL) {
             System.out.println("Se alcanzó el máximo de rondas registrables.");
             return;
@@ -96,28 +96,8 @@ public class Ruleta {
         int numero = girarRuleta();
         boolean acierto = evaluarResultado(numero, tipo);
 
-
-        historialNumeros[historialSize] = numero;
-        historialApuestas[historialSize] = monto;
-        historialAciertos[historialSize] = acierto;
-        historialSize++;
-
-        String color;
-        if (numero == 0) {
-            color = "Verde";
-        } else if (esRojo(numero)) {
-            color = "Rojo";
-        } else {
-            color = "Negro";
-        }
-
-        System.out.println("La ruleta giró y cayó en el número " + numero + " (" + color + ")");
-        if (acierto) {
-            System.out.println("¡Felicidades, ganaste!");
-        } else {
-            System.out.println("Perdiste esta ronda. ¡Suerte para la próxima!");
-        }
-// TODO: Implementar el flujo completo de una ronda.
+        registrarResultado(numero, monto, acierto);
+        mostrarResultado(numero, tipo, monto, acierto);
     }
 
 
@@ -175,9 +155,7 @@ public class Ruleta {
         return false;
     }
 
-    public static void registrarResultado(int numero, int apuesta, boolean acierto) {
-// TODO: Guardar los datos sin superar MAX_HISTORIAL.
-    }
+    public static void registrarResultado(int numero, int apuesta, boolean acierto)
 
     public static void mostrarResultado(int numero, char tipo, int monto, boolean
         acierto) {
