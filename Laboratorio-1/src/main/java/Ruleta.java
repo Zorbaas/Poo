@@ -145,9 +145,8 @@ public class Ruleta {
         return tipo;
     }
 
-    public static int girarRuleta() {
-// TODO: Generar y retornar un número entre 0 y 36.
-        return 0;
+    public static int girarRuleta()  {
+        return rng.nextInt(37);
     }
 
 
