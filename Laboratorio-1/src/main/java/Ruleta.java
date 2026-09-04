@@ -166,7 +166,41 @@ public class Ruleta {
 
     public static void mostrarResultado(int numero, char tipo, int monto, boolean
         acierto) {
-// TODO: Mostrar los datos y el resultado de la ronda.
+        String color;
+        if (numero == 0) {
+            color = "Verde";
+        } else if (esRojo(numero)) {
+            color = "Rojo";
+        } else {
+            color = "Negro";
+        }
+
+        String tipoTexto;
+        switch (tipo) {
+            case 'R':
+                tipoTexto = "Rojo";
+                break;
+            case 'N':
+                tipoTexto = "Negro";
+                break;
+            case 'P':
+                tipoTexto = "Par";
+                break;
+            case 'I':
+                tipoTexto = "Impar";
+                break;
+            default:
+                tipoTexto = "Desconocido";
+        }
+
+        System.out.println("\n----- Resultado de la ronda -----");
+        System.out.println("Número obtenido: " + numero + " (" + color + ")");
+        System.out.println("Apuesta realizada: " + tipoTexto + " | Monto: " + monto);
+        if (acierto) {
+            System.out.println("¡Felicidades, ganaste!");
+        } else {
+            System.out.println("Perdiste esta ronda. ¡Suerte para la próxima!");
+        }
     }
 
     public static void mostrarEstadisticas() {
