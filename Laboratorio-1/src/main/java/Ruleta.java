@@ -204,6 +204,32 @@ public class Ruleta {
     }
 
     public static void mostrarEstadisticas() {
-// TODO: Calcular y mostrar las estadísticas acumuladas.
+        if (historialSize == 0) {
+            System.out.println("Aún no se ha jugado ninguna ronda.");
+            return;
+        }
+
+        int totalApostado = 0;
+        int totalAciertos = 0;
+        int gananciaNeta = 0; // pago 1:1 en cada acierto
+
+        for (int i = 0; i < historialSize; i++) {
+            totalApostado += historialApuestas[i];
+            if (historialAciertos[i]) {
+                totalAciertos++;
+                gananciaNeta += historialApuestas[i];
+            } else {
+                gananciaNeta -= historialApuestas[i];
+            }
+        }
+
+        double porcentajeAciertos = (double) totalAciertos / historialSize * 100;
+
+        System.out.println("\n===== ESTADÍSTICAS =====");
+        System.out.println("Rondas jugadas: " + historialSize);
+        System.out.println("Monto total apostado: " + totalApostado);
+        System.out.println("Aciertos totales: " + totalAciertos);
+        System.out.printf("Porcentaje de aciertos: %.2f%%%n", porcentajeAciertos);
+        System.out.println("Ganancia/pérdida neta: " + gananciaNeta);
     }
 }
