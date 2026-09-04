@@ -73,6 +73,50 @@ public class Ruleta {
 
 
     public static void iniciarRonda(Scanner in) {
+        if (historialSize >= MAX_HISTORIAL) {
+            System.out.println("Se alcanzó el máximo de rondas registrables.");
+            return;
+        }
+
+        char tipo = leerTipoApuesta(in);
+
+        int monto = -1;
+        while (monto < 0) {
+            System.out.print("Ingrese el monto a apostar: ");
+            try {
+                monto = Integer.parseInt(in.nextLine().trim());
+                if (monto < 0) {
+                    System.out.println("El monto no puede ser negativo.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Debe ingresar un número entero.");
+            }
+        }
+
+        int numero = girarRuleta();
+        boolean acierto = evaluarResultado(numero, tipo);
+
+
+        historialNumeros[historialSize] = numero;
+        historialApuestas[historialSize] = monto;
+        historialAciertos[historialSize] = acierto;
+        historialSize++;
+
+        String color;
+        if (numero == 0) {
+            color = "Verde";
+        } else if (esRojo(numero)) {
+            color = "Rojo";
+        } else {
+            color = "Negro";
+        }
+
+        System.out.println("La ruleta giró y cayó en el número " + numero + " (" + color + ")");
+        if (acierto) {
+            System.out.println("¡Felicidades, ganaste!");
+        } else {
+            System.out.println("Perdiste esta ronda. ¡Suerte para la próxima!");
+        }
 // TODO: Implementar el flujo completo de una ronda.
     }
 
