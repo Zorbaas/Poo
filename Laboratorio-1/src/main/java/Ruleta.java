@@ -165,9 +165,14 @@ public class Ruleta {
         }
     }
 
-    public static boolean esRojo(int n) {
-// TODO: Buscar el número en el arreglo numerosRojos.
-    return false;
+    public static boolean esRojo(int numero) {
+
+        for (int i = 0; i < numerosRojos.length; i++) {
+            if (numerosRojos[i] == numero) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void registrarResultado(int numero, int apuesta, boolean acierto) {
