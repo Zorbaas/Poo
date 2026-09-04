@@ -22,13 +22,13 @@ public class Ruleta {
 
     public static void menu() {
         Scanner in = new Scanner(System.in);
-        int option;
+        int opcion;
 
         do {
             mostrarMenu();
-            option = leerOpcion(in);
-            ejecutarOpcion(option,in);
-        } while (option != 3);
+            opcion = leerOpcion(in);
+            ejecutarOpcion(opcion, in);
+        } while (opcion != 3);
 
         in.close();
     }
@@ -44,17 +44,30 @@ public class Ruleta {
 
 
     public static int leerOpcion(Scanner in) {
-        int option = -1;
+        int opcion = -1;
         try {
-            option = Integer.parseInt(in.nextLine().trim());
-        }   catch (NumberFormatException e) {
+            opcion = Integer.parseInt(in.nextLine().trim());
+        } catch (NumberFormatException e) {
             System.out.println("Debes ingresar un numero");
         }
 // TODO: Leer y retornar la opción ingresada.
-        return option;
+        return opcion;
     }
 
     public static void ejecutarOpcion(int opcion, Scanner in) {
+        switch (opcion) {
+            case 1:
+                iniciarRonda(in);
+                break;
+            case 2:
+                mostrarEstadisticas();
+                break;
+            case 3:
+                System.out.println("Gracias por jugar");
+                break;
+            default:
+                System.out.println("Opcion invalida");
+        }
 // TODO: Ejecutar la acción asociada a la opción.
     }
 
@@ -79,5 +92,23 @@ public class Ruleta {
     public static boolean evaluarResultado(int numero, char tipo) {
 // TODO: Evaluar el resultado según el tipo de apuesta.
         return false;
+    }
+
+    public static boolean esRojo(int n) {
+// TODO: Buscar el número en el arreglo numerosRojos.
+    return false;
+    }
+
+    public static void registrarResultado(int numero, int apuesta, boolean acierto) {
+// TODO: Guardar los datos sin superar MAX_HISTORIAL.
+    }
+
+    public static void mostrarResultado(int numero, char tipo, int monto, boolean
+        acierto) {
+// TODO: Mostrar los datos y el resultado de la ronda.
+    }
+
+    public static void mostrarEstadisticas() {
+// TODO: Calcular y mostrar las estadísticas acumuladas.
     }
 }
